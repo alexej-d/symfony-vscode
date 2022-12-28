@@ -16,9 +16,9 @@ This extension provides the following features :
 
 ## How does it works ?
 
-To detect Symfony projects, this extension rely on `composer.json` files with `symfony/symfony` as one of its dependencies.
+To detect Symfony projects, this extension rely on `composer.lock` files with `symfony/symfony` or `symfony/framework-bundle` as one of the locked dependencies.
 
-The `composer.json` file is supposed to be at the root of your Symfony project.
+The `composer.lock` file is supposed to be at the root of your Symfony project.
 
 When the project is detected, it simply uses the `debug:container` and `debug:router` console commands to hydrate the views and autocompletions.
 
@@ -48,6 +48,6 @@ See [the changelog](CHANGELOG.md) for releases notes.
 
 ## Acknowledgments
 
-Icons from www.flaticon.com, by :
+Icons from www.flaticon.com, by:
 * [Chanut](https://www.flaticon.com/authors/chanut)
 * [SimpleIcon](https://www.flaticon.com/authors/simpleicon)

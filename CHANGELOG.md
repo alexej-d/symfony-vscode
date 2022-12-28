@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.0.3 [12-28-2022]
+
+* FORK: This extension now searches the Composer lockfile for the currently installed Symfony version.
+
 ## 1.0.2 [02-27-2019]
 
 * Fixed the extension not starting at all

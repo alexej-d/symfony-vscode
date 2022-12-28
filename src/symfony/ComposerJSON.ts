@@ -9,17 +9,17 @@ export class ComposerJSON {
             if(vscode.workspace.workspaceFolders === undefined) {
                 reject("No workspace folder opened")
             }
-            vscode.workspace.findFiles("**/composer.json").then(uris => {
+            vscode.workspace.findFiles("**/composer.lock").then(uris => {
                 if(uris.length == 0) {
-                    reject("No composer.json file detected in the current workspace")
+                    reject("No composer.lock file detected in the current workspace")
                 } else {
                     uris.forEach(uri => {
-                        let composerObj = JSON.parse(stripJsonComments(fs.readFileSync(uri.fsPath).toString()))
-                        if(composerObj.require !== undefined) {
-                            Object.keys(composerObj.require).forEach(key => {
-                                if(key === "symfony/symfony" || key == "symfony/framework-bundle") {
+                        let composerLockObj = JSON.parse(stripJsonComments(fs.readFileSync(uri.fsPath).toString()))
+                        if(composerLockObj.packages !== undefined) {
+                            composerLockObj.packages.forEach(({ name, version }) => {
+                                if(name === "symfony/symfony" || name == "symfony/framework-bundle") {
                                     resolve({
-                                        symfonyVersion: parseInt(composerObj.require[key].match(/\d/)),
+                                        symfonyVersion: parseInt(version.match(/\d/)),
                                         uri: uri
                                     })
                                 }

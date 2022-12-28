@@ -31,7 +31,7 @@ If you want to have a better understanding of extension authoring, [the document
 ### Installation
 
 ```
-git clone https://github.com/TheNouillet/symfony-vscode.git
+git clone https://github.com/alexej-d/symfony-vscode.git
 npm install --no-save
 npm run compile
 ```
